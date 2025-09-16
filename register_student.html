@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Estudantes e Empresas</title>
+    <title>Cadastro de Estudante - NEXUS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         @import "tailwindcss";
@@ -477,124 +477,99 @@
         <div class="login-content">
             <div class="login-header">
                 <h1 class="login-title">Bem-vindo a NEXUS</h1>
-                <p class="login-subtitle">Acesse sua conta para continuar</p>
+                <p class="login-subtitle">Crie sua conta de estudante</p>
             </div>
 
             <div class="login-card">
                 <div class="login-card-header">
-                    <h2 class="card-title">Fazer Login</h2>
+                    <h2 class="card-title">Cadastro de Estudante</h2>
                     <p class="card-description">
-                        Escolha seu tipo de conta e faça login
+                        Preencha os campos abaixo para criar sua conta
                     </p>
                 </div>
                 <div class="login-card-content">
-                    <div class="login-tabs">
-                        <div class="tabs-list">
-                            <button class="tab-trigger active" data-tab="student">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user tab-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                Estudante
-                            </button>
-                            <button class="tab-trigger" data-tab="company">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2 tab-icon"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
-                                Empresa
-                            </button>
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="student-name" class="form-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user label-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                Nome Completo
+                            </label>
+                            <input
+                                id="student-name"
+                                name="name"
+                                type="text"
+                                placeholder="Seu nome completo"
+                                class="form-input"
+                                required
+                            />
                         </div>
-
-                        <div id="student-tab-content" class="tab-content active">
-                            <form class="login-form">
-                                <div class="form-group">
-                                    <label for="student-email" class="form-label">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail label-icon"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                                        Email do Estudante
-                                    </label>
-                                    <input
-                                        id="student-email"
-                                        name="email"
-                                        type="email"
-                                        placeholder="seu.email@estudante.com"
-                                        class="form-input"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <label for="student-password" class="form-label">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock label-icon"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                        Senha
-                                    </label>
-                                    <div class="password-input-container">
-                                        <input
-                                            id="student-password"
-                                            name="password"
-                                            type="password"
-                                            placeholder="Digite sua senha"
-                                            class="form-input password-input"
-                                            required
-                                        />
-                                        <button
-                                            type="button"
-                                            class="password-toggle"
-                                            data-target="student-password"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <button type="submit" class="login-button student-button">
-                                    Entrar como Estudante
+                        <div class="form-group">
+                            <label for="student-email" class="form-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail label-icon"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                Email do Estudante
+                            </label>
+                            <input
+                                id="student-email"
+                                name="email"
+                                type="email"
+                                placeholder="seu.email@estudante.com"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="student-password" class="form-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucude-lock label-icon"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                Senha
+                            </label>
+                            <div class="password-input-container">
+                                <input
+                                    id="student-password"
+                                    name="password"
+                                    type="password"
+                                    placeholder="Crie sua senha"
+                                    class="form-input password-input"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="student-password"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 </button>
-                            </form>
+                            </div>
                         </div>
-
-                        <div id="company-tab-content" class="tab-content">
-                            <form class="login-form">
-                                <div class="form-group">
-                                    <label for="company-email" class="form-label">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail label-icon"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                                        Email Corporativo
-                                    </label>
-                                    <input
-                                        id="company-email"
-                                        name="email"
-                                        type="email"
-                                        placeholder="contato@empresa.com"
-                                        class="form-input"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <label for="company-password" class="form-label">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock label-icon"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                        Senha
-                                    </label>
-                                    <div class="password-input-container">
-                                        <input
-                                            id="company-password"
-                                            name="password"
-                                            type="password"
-                                            placeholder="Digite sua senha"
-                                            class="form-input password-input"
-                                            required
-                                        />
-                                        <button
-                                            type="button"
-                                            class="password-toggle"
-                                            data-target="company-password"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <button type="submit" class="login-button company-button">
-                                    Entrar como Empresa
+                        <div class="form-group">
+                            <label for="student-confirm-password" class="form-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock label-icon"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                Confirmar Senha
+                            </label>
+                            <div class="password-input-container">
+                                <input
+                                    id="student-confirm-password"
+                                    name="confirm-password"
+                                    type="password"
+                                    placeholder="Confirme sua senha"
+                                    class="form-input password-input"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="student-confirm-password"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 </button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-
+                        <button type="submit" class="login-button">
+                            Cadastrar como Estudante
+                        </button>
+                    </form>
                     <div class="login-footer">
-                        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
                         <div class="signup-link">
-                            Não tem uma conta? <a href="register_student.html" class="signup-link-text">Cadastre-se como Estudante</a> ou <a href="register_company.html" class="signup-link-text">Cadastre-se como Empresa</a>
+                            Já tem uma conta? <a href="index.html" class="signup-link-text">Fazer Login</a>
                         </div>
                     </div>
                 </div>
@@ -604,25 +579,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const tabTriggers = document.querySelectorAll(".tab-trigger");
-            const tabContents = document.querySelectorAll(".tab-content");
             const passwordToggles = document.querySelectorAll(".password-toggle");
-
-            tabTriggers.forEach(trigger => {
-                trigger.addEventListener("click", () => {
-                    tabTriggers.forEach(t => t.classList.remove("active"));
-                    trigger.classList.add("active");
-
-                    const targetTab = trigger.dataset.tab;
-                    tabContents.forEach(content => {
-                        if (content.id === `${targetTab}-tab-content`) {
-                            content.classList.add("active");
-                        } else {
-                            content.classList.remove("active");
-                        }
-                    });
-                });
-            });
 
             passwordToggles.forEach(toggle => {
                 toggle.addEventListener("click", () => {
@@ -638,18 +595,24 @@
                 });
             });
 
-            // Simular o comportamento de formulário
-            document.querySelectorAll(".login-form").forEach(form => {
-                form.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    const emailInput = form.querySelector("input[name=\"email\"]");
-                    const passwordInput = form.querySelector("input[name=\"password\"]");
-                    const type = form.closest(".tab-content").id.includes("student") ? "student" : "company";
-                    console.log("Login attempt:", { email: emailInput.value, password: passwordInput.value, type });
-                    alert(`Login como ${type === 'student' ? 'Estudante' : 'Empresa'} com Email: ${emailInput.value}`);
-                });
+            document.querySelector(".login-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("student-name").value;
+                const email = document.getElementById("student-email").value;
+                const password = document.getElementById("student-password").value;
+                const confirmPassword = document.getElementById("student-confirm-password").value;
+
+                if (password !== confirmPassword) {
+                    alert("As senhas não coincidem!");
+                    return;
+                }
+
+                console.log("Student Registration Attempt:", { name, email, password });
+                alert(`Cadastro de Estudante realizado com sucesso! Nome: ${name}, Email: ${email}`);
+                // Aqui você pode adicionar a lógica para enviar os dados para o backend
             });
         });
     </script>
 </body>
 </html>
+
