@@ -1,86 +1,233 @@
-/* Adicione estas novas regras ao final do seu arquivo style.css */
-
-/* Estilos para as Abas (Tabs) */
-.login-tabs {
-    width: 100%;
-    margin-bottom: 1.5rem;
+/* --- Reset Básico e Definições Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.tabs-list {
-    display: flex;
-    justify-content: space-around;
-    background: var(--medium-gray);
-    border: 1px solid var(--border);
-    padding: 0.25rem;
-    border-radius: var(--radius);
+:root {
+    --cor-fundo: #121212; /* Preto moderno */
+    --cor-cartao: #1E1E1E; /* Cinza escuro para o card */
+    --cor-borda: #2c2c2c;
+    --cor-vinho: #8A0707; /* Vinho para as formas e detalhes */
+    --cor-texto-principal: #E0E0E0;
+    --cor-texto-secundario: #A0A0A0;
+    --cor-botao-hover: #A31F34;
+    --cor-input-fundo: #252525;
 }
 
-.tab-trigger {
-    flex: 1;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    color: var(--muted-foreground);
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius-sm, calc(var(--radius) - 4px));
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    font-size: 0.95rem;
-}
-
-.tab-trigger.active {
-    background: var(--wine-red);
-    color: var(--primary-foreground);
-    box-shadow: 0 4px 12px rgba(114, 47, 55, 0.3);
-}
-
-.tab-trigger:hover:not(.active) {
-    background: var(--light-gray);
-    color: var(--foreground);
-}
-
-.tab-icon {
-    display: flex;
     align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Evita que as formas grandes causem scroll */
+    position: relative;
 }
 
-.tab-icon svg {
-    width: 16px;
-    height: 16px;
+/* --- Formas Geométricas de Fundo --- */
+.geometric-shapes .shape {
+    position: absolute;
+    background-color: var(--cor-vinho);
+    opacity: 0.08; /* Opacidade baixa para um efeito sutil */
+    border-radius: 20%;
+    filter: blur(60px); /* Desfoque para suavizar as formas */
+    transform: rotate(45deg);
 }
 
-/* Controle de visibilidade do conteúdo da aba */
-.tab-content {
-    display: none; /* Oculta por padrão */
-    animation: fadeIn 0.5s ease;
+.shape-1 { width: 400px; height: 400px; top: -150px; left: -150px; }
+.shape-2 { width: 300px; height: 300px; top: 50%; right: -100px; }
+.shape-3 { width: 250px; height: 250px; bottom: -120px; left: 20%; }
+.shape-4 { width: 200px; height: 200px; top: 20%; right: 30%; }
+.shape-5 { width: 350px; height: 350px; bottom: -100px; right: -150px; }
+
+/* --- Container Principal --- */
+.login-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
 }
 
-.tab-content.active {
-    display: block; /* Mostra apenas o conteúdo ativo */
+.login-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-/* Cabeçalho dentro do formulário */
+/* --- Cabeçalho --- */
+.login-header {
+    text-align: center;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+}
+
+.login-subtitle {
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* --- Card de Login/Cadastro --- */
+.login-card {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
 .form-header {
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
-/* Animação de Fade-in */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-/* Ajuste no padding do card-content */
-.login-card-content {
-    padding: 2rem;
+.card-description {
+    color: var(--cor-texto-secundario);
 }
 
-/* Ajuste no footer */
+/* --- Abas de Seleção (Empresa/Estudante) --- */
+.login-tabs {
+    margin-bottom: 1.5rem;
+}
+
+.tabs-list {
+    display: flex;
+    background-color: var(--cor-input-fundo);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.tab-trigger {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background-color: transparent;
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-trigger.active {
+    background-color: var(--cor-vinho);
+    color: #fff;
+}
+
+.tab-trigger:not(.active):hover {
+    background-color: #333;
+}
+
+/* --- Formulários --- */
+.tab-content {
+    display: none; /* Oculta por padrão */
+}
+
+.tab-content.active {
+    display: block; /* Mostra a aba ativa */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto-secundario);
+}
+
+.form-input {
+    background-color: var(--cor-input-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    color: var(--cor-texto-principal);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input::placeholder {
+    color: #6b6b6b;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--cor-vinho);
+    box-shadow: 0 0 0 3px rgba(138, 7, 7, 0.3);
+}
+
+/* --- Botão Principal --- */
+.login-button {
+    background-color: var(--cor-vinho);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+/* --- Rodapé do Card --- */
 .login-footer {
+    text-align: center;
     margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+}
+
+.signup-link-text {
+    color: var(--cor-vinho);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link-text:hover {
+    text-decoration: underline;
+}
+
+/* --- Lógica para mostrar/ocultar senha (opcional, se usar JS) --- */
+.password-input-container {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* Adicione ícones de olho (aberto/fechado) aqui via CSS ou JS */
 }
