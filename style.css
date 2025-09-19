@@ -177,7 +177,7 @@ body {
 .form-input:focus {
     outline: none;
     border-color: var(--cor-vinho);
-    box-shadow: 0 0 0 3px rgba(123, 10, 10, 0.572);
+    box-shadow: 0 0 0 3px rgba(138, 7, 7, 0.3);
 }
 
 /* --- Botão Principal --- */
@@ -229,5 +229,4 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    /* Adicione ícones de olho (aberto/fechado) aqui via CSS ou JS */
 }
