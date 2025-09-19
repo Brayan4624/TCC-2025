@@ -436,3 +436,48 @@ heme inline {
   }
 }
 
+
+
+@media (max-width: 640px) {
+  .login-card {
+    width: 100%;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .login-card-header,
+  .login-card-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .login-title {
+    font-size: 2rem;
+  }
+  .login-subtitle {
+    font-size: 1rem;
+  }
+  .tab-trigger {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .form-input {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .login-button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+  .forgot-password,
+  .signup-link {
+    font-size: 0.85rem;
+  }
+}
+
+
