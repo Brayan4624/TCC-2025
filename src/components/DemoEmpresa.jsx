@@ -13,7 +13,7 @@ export default function DemoEmpresa() {
       email: 'contato@techsolutions.com',
       avatar: 'TS'
     });
-    navigate('/inicio-empresa');
+    navigate('/feed');
   };
 
   const recursos = [
