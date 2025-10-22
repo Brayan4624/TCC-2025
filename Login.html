@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Conectando talentos e oportunidades</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-section {
+            flex: 1;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .brand-section h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .brand-section p {
+            font-size: 1rem;
+            margin-top: 30px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .login-section {
+            flex: 1;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-section h3 {
+            font-size: 1.8rem;
+            color: #1a2a6c;
+            margin-bottom: 10px;
+        }
+
+        .login-section p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .profile-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .profile-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-option:hover {
+            border-color: #1a2a6c;
+        }
+
+        .profile-option.active {
+            border-color: #1a2a6c;
+            background-color: rgba(26, 42, 108, 0.05);
+        }
+
+        .profile-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1a2a6c;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #1a2a6c;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(26, 42, 108, 0.2);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .divider span {
+            padding: 0 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .sso-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .sso-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .sso-icon {
+            font-size: 1.2rem;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        .signup-link a {
+            color: #1a2a6c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .brand-section, .login-section {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-section">
+            <h1>NEXUS</h1>
+            <h2>Conectando talentos e oportunidades</h2>
+            <p>Investigação de talentos gerais</p>
+        </div>
+        <div class="login-section">
+            <h3>Entrar na sua conta</h3>
+            <p>Entre para aceitar suas oportunidades</p>
+            
+            <div class="profile-selector">
+                <div class="profile-option active" id="empresa">
+                    <div class="profile-icon">🏢</div>
+                    <div>Perfil Empresa</div>
+                </div>
+                <div class="profile-option" id="estudantil">
+                    <div class="profile-icon">🎓</div>
+                    <div>Perfil Estudantil</div>
+                </div>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="luxvus@nexups.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Entrar</button>
+            </form>
+            
+            <div class="divider">
+                <span>ou</span>
+            </div>
+            
+            <button class="sso-btn">
+                <span class="sso-icon">🔒</span>
+                <span>Entrar com Samba</span>
+            </button>
+            
+            <div class="signup-link">
+                Ainda não tem uma conta? <a href="#">Criar conta gratuita</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Seleção de perfil
+        const profileOptions = document.querySelectorAll('.profile-option');
+        
+        profileOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove a classe active de todos
+                profileOptions.forEach(opt => opt.classList.remove('active'));
+                // Adiciona a classe active apenas ao clicado
+                option.classList.add('active');
+            });
+        });
+        
+        // Validação do formulário
+        const loginForm = document.getElementById('loginForm');
+        
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const activeProfile = document.querySelector('.profile-option.active').id;
+            
+            // Validação básica
+            if (!email || !password) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            
+            // Simulação de login
+            alert(`Login realizado com sucesso!\nPerfil: ${activeProfile}\nEmail: ${email}`);
+            
+            // Aqui você pode adicionar a lógica de autenticação real
+        });
+        
+        // Botão SSO
+        const ssoBtn = document.querySelector('.sso-btn');
+        
+        ssoBtn.addEventListener('click', () => {
+            alert('Redirecionando para autenticação SSO...');
+            // Aqui você pode adicionar a lógica de autenticação SSO
+        });
+    </script>
+</body>
+</html>
